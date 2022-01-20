@@ -2,7 +2,7 @@
 
 A class containing data and the reference to the next node
 
-`
+```csharp
 public class Node
 {
   public int Value { get; set; }
@@ -14,7 +14,8 @@ public class Node
      this.Next = next;
   }
 }
-`
+```
+
 
 ## Example of LinkedList
 <iframe src="https://try.dot.net/?bufferId=linkedlist.cs&fromGist=306e4531f4a94bab44ebae258f9a9f93&canshowgithubpanel=true"> </iframe>
