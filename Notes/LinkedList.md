@@ -16,6 +16,10 @@ public class Node
 }
 ```
 
-
-## Example of LinkedList
+#### Example of LinkedList
 <iframe src="https://try.dot.net/?bufferId=linkedlist.cs&fromGist=306e4531f4a94bab44ebae258f9a9f93&canshowgithubpanel=true"> </iframe>
+
+
+
+## Doubly Linked List
+A linked list that provides forward iteration from the start to the end of the list, and reverse iteration, from end to start.
