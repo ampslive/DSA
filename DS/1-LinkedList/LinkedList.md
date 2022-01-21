@@ -23,3 +23,13 @@ public class Node
 
 ## Doubly Linked List
 A linked list that provides forward iteration from the start to the end of the list, and reverse iteration, from end to start.
+
+
+---
+## Big-O Notation for Linked List
+| Operation  | Complexity |
+| ---------- | ----- |
+| AddHead    | O(1)  |
+| AddTail    | O(1)  |
+| FindItem   | O(n)  |
+| RemoveItem | O(n)  |
