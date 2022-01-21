@@ -1,43 +1,76 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Linked List App");
+﻿Console.WriteLine("----------Linked List App----------");
+
+var n1 = new LinkedList<int>(1);
+var n2 = new LinkedList<int>(2, null, n1);
+n1.Next = n2;
 
 
+n1.ShowListDetails();
 
+Console.WriteLine($"Adding to Head");
+n1.AddToHead(3);
 
-public class Node
+n1.ShowListDetails();
+
+Console.WriteLine($"Adding to Tail");
+n1.AddToTail(4);
+
+n1.ShowListDetails();
+
+public class LinkedList<T>
 {
-    public int Value { get; set; }
-    public Node Next { get; set; }
-    public Node Previous { get; set; }
-    public Node(int value, Node next = null, Node previous = null)
+    public T Value { get; set; }
+    public LinkedList<T> Next { get; set; }
+    public LinkedList<T> Previous { get; set; }
+    public LinkedList(T value, LinkedList<T> next = null, LinkedList<T> previous = null)
     {
         this.Value = value;
         this.Next = next;
         this.Previous = previous;
     }
-}
 
-]public class LinkedList
-{
-    private Node Nodes { get; set; }
+    public LinkedList<T> Head { get => GetHead(this); }
+    public LinkedList<T> Tail { get => GetTail(this); }
 
-    public Node Head { get => GetHead(); }
-    public void AddToHead(int value)
+    public void AddToHead(T value)
     {
         var currentHead = this.Head;
 
-        currentHead.
+        var newHead = new LinkedList<T>(value, currentHead);
+        currentHead.Previous = newHead;
     }
 
-    private Node GetHead()
+    public void AddToTail(T value)
     {
-        var currentNode = Nodes;
+        var currentTail = this.Tail;
+
+        var newTail = new LinkedList<T>(value, null, currentTail);
+        currentTail.Next = newTail;
+    }
+
+    public void ShowListDetails()
+    {
+        Console.WriteLine($"Head: {this.Head.Value}");
+        Console.WriteLine($"Tail: {this.Tail.Value}");
+    }
+
+    private LinkedList<T> GetHead(LinkedList<T> list)
+    {
+        var currentNode = list;
         while (currentNode.Previous != null)
+        {
+            currentNode = currentNode.Previous;
+        }
+        return currentNode;
+    }
+
+    private LinkedList<T> GetTail(LinkedList<T> list)
+    {
+        var currentNode = list;
+        while (currentNode.Next != null)
         {
             currentNode = currentNode.Next;
         }
         return currentNode;
     }
-
-    public Node Tail { get; }
 }

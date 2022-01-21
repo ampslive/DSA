@@ -32,4 +32,5 @@ A linked list that provides forward iteration from the start to the end of the l
 | AddHead    | O(1)  |
 | AddTail    | O(1)  |
 | FindItem   | O(n)  |
+| Contains   | O(n)  |
 | RemoveItem | O(n)  |
