@@ -2,26 +2,54 @@
 
 var n1 = new LinkedList<int>();
 
-Console.WriteLine($"Adding");
-n1.AddToHead(1);
-n1.AddToHead(2);
-n1.AddToTail(3);
-n1.AddToTail(4);
+#region REPL
+string? input = "";
 
-Console.WriteLine($"List all...");
-foreach(var obj in n1.ListAll())
+while (input != "exit")
 {
-    Console.WriteLine(obj.Value);
+    Console.WriteLine("Operations : addhead | addtail | list | remove | show | exit");
+    input = Console.ReadLine();
+
+    switch (input.ToLower())
+    {
+        case "addhead":
+            {
+                var num = Console.ReadLine();
+                n1.AddToHead(Convert.ToInt32(num));
+                Console.WriteLine("Added");
+                break;
+            }
+        case "addtail":
+            {
+                var num = Console.ReadLine();
+                n1.AddToTail(Convert.ToInt32(num));
+                Console.WriteLine("Added");
+                break;
+            }
+        case "list":
+            {
+                foreach (var obj in n1.ListAll())
+                {
+                    Console.WriteLine(obj.Value);
+                }
+                break;
+            }
+        case "remove":
+            {
+                var num = Console.ReadLine();
+                n1.Remove(Convert.ToInt32(num));
+                Console.WriteLine("Removed");
+                break;
+            }
+        case "show": n1.ShowListDetails(); break;
+        case "exit": input = "exit"; break;
+        default: break;
+
+    }
 }
 
-Console.WriteLine($"Remove");
-n1.Remove(3);
+#endregion
 
-Console.WriteLine($"List all remove...");
-foreach(var obj in n1.ListAll())
-{
-    Console.WriteLine(obj.Value);
-}
 
 public class Node<T>
 {
@@ -40,7 +68,7 @@ public class Node<T>
 public class LinkedList<T>
 {
     public int Count { get; private set; }
-    private  Node<T> Head { get; set; }
+    private Node<T> Head { get; set; }
     private Node<T> Tail { get; set; }
 
     public void AddToHead(T value)
@@ -87,9 +115,9 @@ public class LinkedList<T>
 
     public Node<T> Find(T value)
     {
-        foreach(var obj in this.ListAll())
+        foreach (var obj in this.ListAll())
         {
-            if(obj.Value != null && obj.Value.Equals(value))
+            if (obj.Value != null && obj.Value.Equals(value))
                 return obj;
         }
         return null;
@@ -99,22 +127,22 @@ public class LinkedList<T>
     {
         var obj = Find(value);
 
-        if(obj != null)
+        if (obj != null)
         {
             var previousNode = obj.Previous;
             var nextNode = obj.Next;
 
-            if(previousNode == null)
+            if (previousNode == null)
             {
                 Head = nextNode;
                 Head.Previous = null;
             }
-            else 
+            else
             {
                 previousNode.Next = nextNode;
             }
 
-            if(nextNode == null)
+            if (nextNode == null)
             {
                 Tail = previousNode;
                 Tail.Next = null;
@@ -127,12 +155,12 @@ public class LinkedList<T>
             Count--;
         }
     }
-    
+
     public IEnumerable<Node<T>> ListAll()
     {
         var currentNode = Head;
-        while(currentNode != null)
-        {   
+        while (currentNode != null)
+        {
             yield return currentNode;
             currentNode = currentNode.Next;
         }
