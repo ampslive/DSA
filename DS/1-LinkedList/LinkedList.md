@@ -1,6 +1,8 @@
 # LinkedList
 
-A class containing data and the reference to the next node
+- A list of nodes chained together forms a linked list
+- Each node contains data and the reference to the next node
+
 
 ```csharp
 public class Node
@@ -24,6 +26,8 @@ public class Node
 ## Doubly Linked List
 A linked list that provides forward iteration from the start to the end of the list, and reverse iteration, from end to start.
 
+## Sorted Linked List
+Before inserting a new node, we iterate through the entire list to add the node at the correct order. This causes the Add operation to behave as O(n).
 
 ---
 ## Big-O Notation for Linked List
