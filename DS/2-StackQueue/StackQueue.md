@@ -2,6 +2,7 @@
 
 ## Stack
 LIFO - Last In First Out Container
+- `Push` to add items to the stack
 - `Pop` to remove items from the stack 
 
 ## Queue

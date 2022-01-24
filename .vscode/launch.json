@@ -10,11 +10,11 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/DS/1-LinkedList/src/LinkedListApp/bin/Debug/net6.0/LinkedListApp.dll",
+            "program": "${workspaceFolder}/DS/1-LinkedList/src/SortedLinkedListApp/bin/Debug/net6.0/SortedLinkedListApp.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/DS/1-LinkedList/src/LinkedListApp",
+            "cwd": "${workspaceFolder}/DS/1-LinkedList/src/SortedLinkedListApp",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
-            "console": "internalConsole",
+            "console": "externalTerminal",
             "stopAtEntry": false
         },
         {
