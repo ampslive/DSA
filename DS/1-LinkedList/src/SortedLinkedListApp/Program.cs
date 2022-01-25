@@ -79,6 +79,7 @@ public class SortedList<T>
             var next = node.Next;
 
             prev.Next = next;
+            Count--;
         }
         else
             Console.WriteLine("Not Found");
