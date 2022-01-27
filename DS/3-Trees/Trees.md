@@ -23,5 +23,7 @@
 ## Big-O Notation for Binary Search Tree
 | Operation | Complexity                  |
 | --------- | --------------------------- |
-| Insertion | O(log n) O(n) as worst case |
-
+| Insertion | O(log n)                    |
+|           | O(n) as worst case          |
+| Rmoval    | O(log n)                    |
+|           | O(n) as worst case          |
