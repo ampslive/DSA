@@ -2,7 +2,8 @@
 {
     public static void Run()
     {
-        var n1 = new BST<int>(5);
+        var n1 = new BST<int>();
+        n1.Add(5);
         n1.Add(3);
         n1.Add(7);  
         n1.Add(2);
@@ -35,7 +36,7 @@
                     }
                 case "list":
                     {
-                        //n1.ListAll();
+                        n1.ListAll();
                         break;
                     }
                 case "remove":
