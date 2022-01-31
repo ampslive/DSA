@@ -34,5 +34,5 @@ An associative array container that provides O(1) insert, delete and search oper
 - Based on the `Fill Factor`, the length of Hash-Table can be increased.
   - If fill factor is 0.8, then when 80% of Hash-Table is filled, the length can be increased
 - The length by which a Hash-Table can be increased is determined by `Growth Factor`
-  - If `growth factor` is 2, then the new length will be... `2 * lengthOfHash-Table`
+  - If `growth factor` is 2, then the new length will be... `2 * lengthOfHashTable`
 - When the length of Hash-Table is increased, the index position of each data has to be rearranged since indexer is dependent on length of Hash-Table.
