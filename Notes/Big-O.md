@@ -3,7 +3,7 @@
 - Big-Omega notation represent the best case scenario of an algorith in terms of cost (lower-bound)
 
 ## O(1)
-Fixed time algorithm which takes the same time irrespective of input size
+Fixed/Constant time algorithm which takes the same time irrespective of input size
 
 ## O(n)
 Iterating over a collection of data once often indicates an O(n) algorithm.
