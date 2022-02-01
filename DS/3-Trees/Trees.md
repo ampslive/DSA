@@ -5,6 +5,11 @@
 - `Degree` of tree denotes number of children a node can have
 - `Leaf` is a node that does not contain any children
 - `Level` refers to the height of a tree. Root is 1, children of Root is 2, etc
+- Tree can be represented as an array...
+  - Parent is i (ex: 0th index of array)
+  - Left child is at 2i + 1 (ex: 1st index)
+  - Right child is at 2i + 2 (ex: 2nd index of array)
+  - To find parent... CEIL[i/2] - 1 (ex: if i = 4; parent is at 1st index)
 
 ## Binary Trees
 - Tree that can at most contain two children (left, right)
