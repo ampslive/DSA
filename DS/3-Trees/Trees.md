@@ -10,6 +10,7 @@
   - Left child is at 2i + 1 (ex: 1st index)
   - Right child is at 2i + 2 (ex: 2nd index of array)
   - To find parent... CEIL[i/2] - 1 (ex: if i = 4; parent is at 1st index)
+  - To find leaf nodes... FLOOR[n/2] + 1 to n (ex: if n = 7; 3 + 1 to 7; 4 to 7 nodes are leaf nodes)
 
 ## Binary Trees
 - Tree that can at most contain two children (left, right)
