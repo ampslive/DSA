@@ -29,6 +29,9 @@ foreach (var path in paths)
 {
     Console.WriteLine(path);
 }
+
+g1.BFS("Las Vegas");
+
 Console.ReadLine();
 
 public class Graph
@@ -75,7 +78,7 @@ public class Graph
                 found = true;
                 continue;
             }
-            
+
             foreach (var v in a.Edges)
             {
                 visited.Add(v);
@@ -90,6 +93,47 @@ public class Graph
                 paths.Add(String.Join(" > ", visited));
         }
     }
+
+    public void BFS(string destination)
+    {
+        Console.WriteLine("------ BFS ------");
+        var visited = new List<string>();
+        var parent = new Dictionary<string,string>();
+        Queue<string> q = new Queue<string>();
+        q.Enqueue(AdjacencyList.First().Name);
+        int count = 0;
+        while (q.Count > 0)
+        {
+            count++;
+            var current = q.Dequeue();
+            
+            visited.Add(current); 
+
+            if (current == destination)
+            {
+                var last = destination;
+                while(last != null)
+                {
+                    Console.Write(last + " <-- ");
+                    last = parent.ContainsKey(last) ? parent[last] : null;
+                }
+
+                break;
+            }
+
+            var neighbors = this.AdjacencyList.First(x => x.Name == current);
+
+            foreach (var n in neighbors.Edges)
+            {
+                if (!visited.Contains(n))
+                {
+                    parent[n] = current;
+                    q.Enqueue(n);
+                    visited.Add(n);
+                }
+            }
+        }
+    }
 }
 
 public class Vertex
@@ -99,6 +143,7 @@ public class Vertex
         Name = name;
         Edges = new List<string>();
     }
+
     public string Name { get; set; }
     public List<string> Edges { get; set; }
 
