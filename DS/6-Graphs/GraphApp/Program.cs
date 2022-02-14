@@ -22,13 +22,8 @@ g1.AddEdge("SFO", "Las Vegas");
 g1.AddEdge("Dallas", "Chicago");
 g1.AddEdge("Dallas", "SFO");
 
-var paths = new List<string>();
-g1.DFS("Las Vegas", paths);
+g1.DFS("Chicago", "Las Vegas");
 
-foreach (var path in paths)
-{
-    Console.WriteLine(path);
-}
 
 g1.BFS("Las Vegas");
 
@@ -64,41 +59,46 @@ public class Graph
         }
     }
 
-    public void DFS(string destination, List<string> paths)
+    public void DFS(string source, string destination)
     {
         Console.WriteLine("------ DFS ------");
-        foreach (var a in AdjacencyList)
-        {
-            bool found = false;
-            var visited = new List<string>();
-            visited.Add(a.Name);
+        bool found = false;
+        var visited = new List<string>();
+        var stk = new Stack<string>();
 
-            if (a.Name == destination)
+        stk.Push(source);
+
+        while (stk.Count > 0)
+        {
+            var current = stk.Pop();
+            visited.Add(current);
+
+            if (current == destination)
             {
                 found = true;
-                continue;
+                break;
             }
 
-            foreach (var v in a.Edges)
+            var neighbors = AdjacencyList.First(x => x.Name == current).Edges;
+
+            foreach (var n in neighbors)
             {
-                visited.Add(v);
-                if (v == destination)
+                if (!visited.Contains(n))
                 {
-                    found = true;
-                    break;
+                    stk.Push(n);
                 }
             }
-
-            if (found == true)
-                paths.Add(String.Join(" > ", visited));
+            found = false;
         }
+
+        Console.WriteLine($"Path Found : {found}");
     }
 
     public void BFS(string destination)
     {
         Console.WriteLine("------ BFS ------");
         var visited = new List<string>();
-        var parent = new Dictionary<string,string>();
+        var parent = new Dictionary<string, string>();
         Queue<string> q = new Queue<string>();
         q.Enqueue(AdjacencyList.First().Name);
         int count = 0;
@@ -106,13 +106,13 @@ public class Graph
         {
             count++;
             var current = q.Dequeue();
-            
-            visited.Add(current); 
+
+            visited.Add(current);
 
             if (current == destination)
             {
                 var last = destination;
-                while(last != null)
+                while (last != null)
                 {
                     Console.Write(last + " <-- ");
                     last = parent.ContainsKey(last) ? parent[last] : null;
