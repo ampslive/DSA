@@ -5,7 +5,8 @@
 
 ### Steps
 
-- First element is considered as sorted and the remaining elements are considered as unsorted. 
+- At the first pass, sorted array is considered as length 1 (first element of input array)
+- The remaining elements are considered as unsorted. 
 - On each pass of the unsorted part, the first element is compared with elements in the sorted part and placed accordingly
 
 ## BigO
